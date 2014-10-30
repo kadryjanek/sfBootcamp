@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Koszyk{% endblock %}
+
+{% block body %}
+<p>Twoj koszyk</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Produkt</th>
+			<th>Cena</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for product in products %}
+			<tr>
+				<td>{{ product.name }}</td>
+				<td>{{ product.price }}</td>
+			</tr>			
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

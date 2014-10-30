@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Edycja produktu "{{ form.vars.data.name }}"{% endblock %}
+
+{% block body %}
+
+<h1>{{ block('title') }}</h1>
+
+{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+{% endblock %}

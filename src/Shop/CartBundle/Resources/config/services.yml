@@ -1,0 +1,5 @@
+services:
+    shop_cart:
+        class: Shop\CartBundle\Service\Cart
+        arguments:
+            session: "@session"

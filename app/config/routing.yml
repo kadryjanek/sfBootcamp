@@ -1,0 +1,18 @@
+shop_core:
+    resource: "@ShopCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+shop_cart:
+    resource: "@ShopCartBundle/Resources/config/routing.yml"
+    prefix:   /
+
+shop_user:
+    resource: "@ShopUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+shop_product:
+    resource: "@ShopProductBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

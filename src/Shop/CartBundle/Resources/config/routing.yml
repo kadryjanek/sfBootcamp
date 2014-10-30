@@ -1,0 +1,3 @@
+shop_cart_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ShopCartBundle:Default:index }

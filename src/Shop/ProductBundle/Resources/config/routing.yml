@@ -1,0 +1,40 @@
+shop_product_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ShopProductBundle:Default:index }
+    requirements:
+        name:  \d+
+
+index:
+    path:     /
+    defaults: { _controller: ShopProductBundle:Main:index }
+
+add_to_cart:
+    path:     /add-to-cart/{id}
+    defaults: { _controller: ShopProductBundle:Main:addToCart, id: 1 }
+
+cart:
+    path: /cart
+    defaults: { _controller: ShopProductBundle:Main:cart }
+
+
+product_list:
+    path:     /product/list
+    defaults: { _controller: ShopProductBundle:Product:index }
+
+product_new:
+    path:     /product/new
+    defaults: { _controller: ShopProductBundle:Product:new }
+
+product_edit:
+    path:     /product/edit/{id}
+    defaults: { _controller: ShopProductBundle:Product:edit }
+
+product_delete:
+    path:     /product/delete/{id}
+    defaults: { _controller: ShopProductBundle:Product:delete }
+    
+category:
+    resource: "@ShopProductBundle/Controller/CategoryController.php"
+    type:     annotation
+    prefix:   /admin
+

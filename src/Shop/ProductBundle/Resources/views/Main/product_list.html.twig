@@ -1,0 +1,35 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Produkty{% endblock %}
+
+{% block body %}
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Produkt</th>
+				<th>Opis</th>
+				<th>Cena</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for product in products %}
+				<tr>
+                                    <td>{{ product.id }}</td>
+					<td>{{ product.name }}</td>
+					<td>{{ product.description }}</td>
+					<td>{{ product.price }}</td>
+					<td>
+						<a href="{{ path('add_to_cart', {'id': product.id}) }}">
+							dodaj do koszyka
+						</a>
+					</td>				
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+
+{% endblock %}

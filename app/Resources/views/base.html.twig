@@ -19,10 +19,16 @@
     </head>
     <body>
     <div>
-    	<div id="menu">
-    		<a href="{{ path('index') }}">Produkty</a>
-    		<a href="{{ path('cart') }}">Koszyk</a>
-    	</div>
+        
+        <nav role="navigation" class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-collapse collapse" id="navbar">
+                        {{ knp_menu_render('ShopProductBundle:Builder:mainMenu') }}
+                    </div>
+                </div>
+            </nav>
+        
+    	
     	
     	<div id="side">
     		{% block side %}Side{% endblock %}

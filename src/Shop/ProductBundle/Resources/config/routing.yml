@@ -37,4 +37,8 @@ category:
     resource: "@ShopProductBundle/Controller/CategoryController.php"
     type:     annotation
     prefix:   /admin
+    
+show_category:
+    path: /category/{id}
+    defaults: {_controller: ShopProductBundle:Main:showProductInCategory }
 

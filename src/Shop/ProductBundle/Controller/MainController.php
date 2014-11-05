@@ -5,6 +5,7 @@ namespace Shop\ProductBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Doctrine\Common\Collections\ArrayCollection;
+use Shop\ProductBundle\Form\ContactFormType;
 
 class MainController extends Controller
 {
@@ -58,6 +59,30 @@ class MainController extends Controller
     	return $this->getDoctrine()
             ->getRepository('ShopProductBundle:Product')
             ->findAll();
+    }
+    
+    public function showProductInCategoryAction($id)
+    {
+        $products = $this->getDoctrine()
+                ->getRepository('ShopProductBundle:Product')
+                ->findBy([
+                    'category' => $id,
+                ]);
+        
+        return $this->render('ShopProductBundle:Main:product_list.html.twig', array(
+                'products' => $products,        		
+        	));  
+    }
+    
+    public function contactAction()
+    {
+        $request = $this->getRequest();
+        
+        $form = $this->createForm(new ContactFormType());
+        
+        return $this->render('ShopProductBundle:Main:contact.html.twig', [
+           'form' => $form->createView(), 
+        ]);
     }
 
 }

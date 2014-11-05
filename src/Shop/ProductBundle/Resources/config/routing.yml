@@ -41,4 +41,8 @@ category:
 show_category:
     path: /category/{id}
     defaults: {_controller: ShopProductBundle:Main:showProductInCategory }
+    
+contact:
+    path: /contact
+    defaults: {_controller: ShopProductBundle:Main:contact }
 

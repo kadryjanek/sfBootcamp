@@ -1,1 +1,53 @@
+{% extends "::base.html.twig" %}
 
+{% block head_style %}
+    {{ parent() }}
+    
+{% endblock %}
+
+{% block title %}Formularz kontaktowy{% endblock %}
+
+{% block body %}
+    
+    {% for type, flashMessages in app.session.flashbag.all() %}
+        {% for flashMessage in flashMessages %}
+            <div class="alert alert-{{ type }}">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    
+    <form method="post" class="form-horizontal">
+        {{ form_errors(form) }}
+        
+        <div class="form-group">
+            {{ form_label(form.name, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            <div class="col-sm-6">
+                {{ form_widget(form.name) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.email, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            <div class="col-sm-6">
+                {{ form_widget(form.email) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.message, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            <div class="col-sm-6">
+                {{ form_widget(form.message) }}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-default">Wyślij</button>
+            </div>
+        </div>
+            
+        {{ form_rest(form) }}
+                    
+    </form>
+{% endblock %}

@@ -45,10 +45,10 @@ class Builder extends ContainerAware
             'route' => 'cart',
         ));
 
-//        $menu->addChild('contact', array(
-//            'label' => 'Kontakt',
-//            'route' => 'contact',
-//        ));
+        $menu->addChild('contact', array(
+            'label' => 'Kontakt',
+            'route' => 'contact',
+        ));
 
         return $menu;
     }

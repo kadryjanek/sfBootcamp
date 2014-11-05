@@ -19,7 +19,7 @@
 				<tr>
 					<td>{{ product.id }}</td>
 					<td>{{ product.name }}</td>
-					<td>{{ product.description }}</td>
+                                        <td>{% autoescape %}{{ product.description|raw }}{% endautoescape %}</td>
 					<td>{{ product.price }}</td>
 					<td>
 						<a href="{{ path('add_to_cart', {'id': product.id}) }}">

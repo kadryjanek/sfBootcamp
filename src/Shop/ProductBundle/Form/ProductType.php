@@ -17,7 +17,12 @@ class ProductType extends AbstractType
         $builder
             ->add('category')
             ->add('name')
-            ->add('description')
+            ->add('description', 'textarea', [
+                'attr' => [
+                    'class' => 'tinymce',
+                    'style' => 'width: 600px;'
+                ]
+            ])
             ->add('price')
             ->add('amount')
             ->add('save', 'submit', [

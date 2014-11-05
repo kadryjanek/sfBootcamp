@@ -2,6 +2,12 @@
 
 {% block title %}Edycja produktu "{{ form.vars.data.name }}"{% endblock %}
 
+{% block scripts %}
+    {{ parent() }}
+    
+    {{ tinymce_init() }}
+{% endblock %}
+
 {% block body %}
 
 <h1>{{ block('title') }}</h1>

@@ -102,10 +102,16 @@ class MainController extends Controller
             // jeśli to jest żądanie Ajaksowe
             if ($request->isXmlHttpRequest()) {
                 
+                return new Response('<p class="bg-success">Formularz został wysłany!</p>');
+                
+                // alternatywna wersja dla żądania JSON
+                /*
                 return new JsonResponse([
                     'success'   => true,
-                    'message'   => 'Formularz został pomyślnie wysłany'
+                    'message'   => 'Formularz został pomyślnie wysłany',
+                    'view'      => '<p class="bg-success">Formularz został wysłany!</p>'
                 ]);
+                */
             }
             
             if ($this->get('mailer')->send($message)) {
@@ -119,7 +125,13 @@ class MainController extends Controller
         
         // jeśli to jest żądanie Ajaksowe
         if ($request->isXmlHttpRequest()) {
+
+            return $this->render('ShopProductBundle:Main:form.html.twig', [
+                'form'  => $form->createView()
+            ]);
             
+            // alternatywna wersja dla żądania JSON
+            /*
             return new JsonResponse([
                 'success'   => false, 
                 'message'   => 'W formularzu wystąpiły błędy opisane szczegółowo poniżej.',
@@ -127,6 +139,7 @@ class MainController extends Controller
                     'form'  => $form->createView()
                 ])
             ]);
+            */
         }
         
         return $this->render('ShopProductBundle:Main:contact.html.twig', [

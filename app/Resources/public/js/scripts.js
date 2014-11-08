@@ -13,18 +13,19 @@ $(document).ready(function() {
 			action, 
 			$form.serialize(),
 			function(response) {
-			
-				if (response.success) {
-					alert(response.message)
-				} else {
-					alert(response.message);
-					$form.replaceWith(response.view);
-				}
+
+				// alternatywna wersja dla odpowiedzi z JSON
+				//$form.replaceWith(response.view);
+				//alert(response.message);
 				
+				$form.replaceWith(response);
+				
+				// ponowne przypisanie akcji 'submit' dla przycisku
 				$form = $('form#contact-form');
 				$form.submit(handleForm);
-			}, 
-			'json'
+			}
+			// alternatywna wersja dla żądania z JOSNem
+			//'json'
 		);
 		
 		// zapobiega standardowemu wysłaniu formularza

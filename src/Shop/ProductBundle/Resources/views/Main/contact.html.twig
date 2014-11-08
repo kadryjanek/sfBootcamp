@@ -17,17 +17,6 @@
         {% endfor %}
     {% endfor %}
     
-    <form id="contact-form" action="{{ path('contact') }}" method="post" class="form-horizontal" novalidate="novalidate" >
-        {{ form_errors(form) }}
-        
-        {{ form_row(form.name) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.message) }}
-        
-        <button type="submit" class="btn btn-default">Wyślij</button>
-            
-        {{ form_rest(form) }}
-                    
-    </form>
+    {% include 'ShopProductBundle:Main:form.html.twig' with {form: form} %}
     
 {% endblock %}
